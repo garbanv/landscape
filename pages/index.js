@@ -182,6 +182,7 @@ export async function getStaticProps(context) {
 
   return {
     props: { data: { values: cleanNullValues } },
-    revalidate: 10, // In seconds
+    revalidate: 10
+
   };
 }
