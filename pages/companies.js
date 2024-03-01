@@ -299,6 +299,5 @@ export async function getStaticProps(context) {
 
   return {
     props: { data: { values: cleanNullValues.sort((a, b) => a.name.localeCompare(b.name)) } },
-    revalidate: 10, // In seconds
-  };
+    revalidate: 60
 }

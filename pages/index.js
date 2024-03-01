@@ -163,6 +163,9 @@ export default function Homepage({ data }) {
 }
 export async function getStaticProps(context) {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/v2/companies`, {
+    next:{
+      revalidate:60
+    },
     method: "GET",
     headers: {
       Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_KEY}`,
@@ -181,8 +184,6 @@ export async function getStaticProps(context) {
   }
 
   return {
-    props: { data: { values: cleanNullValues } },
-    revalidate: 10
-
+    props: { data: { values: cleanNullValues } }
   };
 }
